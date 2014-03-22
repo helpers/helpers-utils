@@ -4,7 +4,7 @@
   "description": "Utility methods commonly used for writing helper libraries.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -R test"
+    "test": "mocha -R spec"
   },
   "repository": {
     "type": "git",
