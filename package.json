@@ -1,0 +1,50 @@
+{
+  "name": "helpers-utils",
+  "version": "0.1.0",
+  "description": "Utility methods commonly used for writing helper libraries.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/helpers/helpers-utils.git"
+  },
+  "keywords": [
+    "docs",
+    "documentation",
+    "generate",
+    "generator",
+    "markdown",
+    "templates",
+    "verb",
+    "handlebars-helpers",
+    "lodash",
+    "mixin",
+    "mixins"
+  ],
+  "author": {
+    "name": "Brian Woodward",
+    "url": "http://github.com/helpers/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/helpers/helpers-utils/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "~1.8.1",
+    "mocha": "~1.17.0",
+    "verb": "~0.1.10"
+  },
+  "homepage": "https://github.com/helpers/helpers-utils",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/helpers/helpers-utils/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">=0.8"
+  }
+}
