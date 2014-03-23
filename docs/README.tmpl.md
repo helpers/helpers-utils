@@ -1,12 +1,18 @@
-# {%= name %} [![NPM version](https://badge.fury.io/js/{%= name %}.png)](http://badge.fury.io/js/{%= name %})
+# {%= name %} {%=  badge("fury") %}
 
 > {%= description %}
 
-## Install
-{%= include("install") %}
+## Getting Started
+{%= docs("quickstart") %}
+
+## Usage
+{%= docs("examples") %}
+
+## Contributing
+{%= contrib("contributing") %}
 
 ## Author
- * {%= author.name %}
+{%= contrib("authors") %}
 
 ## License
 {%= copyright() %}
