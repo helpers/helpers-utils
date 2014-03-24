@@ -1,8 +1,9 @@
 
 var inspect = require('util').inspect;
 
-var expect = require('chai').expect,
-    utils = require('..');
+var expect = require('chai').expect;
+var utils = require('..');
+var Handlebars = require('handlebars');
 
 describe('helpers-utils', function() {
 
@@ -10,8 +11,9 @@ describe('helpers-utils', function() {
     return 'Hello, ' + name + '!';
   };
 
-  before(function () {
+  after(function () {
     utils.Library.helpers = [];
+    delete Handlebars.helpers['greeting'];
   });
 
   it('should contain the correct properties', function () {
@@ -54,11 +56,31 @@ describe('helpers-utils', function() {
 
   it('should register a helper with handlebars', function () {
 
-    var Handlebars = require('handlebars');
     utils.Library.addHelper('greeting', greeting);
     utils.Library.registerHelpers(Handlebars);
 
     expect(Handlebars.helpers).to.have.property('greeting');
+  });
+
+  it('should add a helper to the Library and return the correct results', function () {
+
+    utils.Library.addHelper('gretting', greeting);
+    expect(utils.Library.helpers.greeting('Brian')).to.eql('Hello, Brian!');
+
+  });
+
+  it('should register a helper with handlebars that is called in a template', function () {
+
+    utils.Library.addHelper('greeting', greeting);
+    utils.Library.registerHelpers(Handlebars);
+
+    var data = {
+      name: 'Brian'
+    };
+
+    var tmpl = '{{gretting name}} Welcome to the wonderful world of helpers!';
+    expect(Handlebars.compile(tmpl)(data)).to.eql('Hello, Brian! Welcome to the wonderful world of helpers!');
+
   });
 
 });
