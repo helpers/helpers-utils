@@ -1,6 +1,6 @@
 {
   "name": "helpers-utils",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Utility methods commonly used for writing helper libraries.",
   "main": "index.js",
   "scripts": {
