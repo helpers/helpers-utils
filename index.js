@@ -4,8 +4,14 @@
   if (typeof module !== 'undefined' && module !== null) {
     module.exports = helperUtils = {};
     // include the other modules here
-    helperUtils.expects = require('./src/expects');
     helperUtils.Library = require('./src/library');
+    var utils = require('./src/utils');
+    for (var k in utils) {
+      if (utils.hasOwnProperty(k)) {
+        helperUtils[k] = utils[k];
+      }
+    }
+
   } else {
     // otherwise we're problably in a browser so use
     // 'this' which is the window object
