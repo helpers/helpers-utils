@@ -35,7 +35,8 @@
   "devDependencies": {
     "chai": "~1.8.1",
     "mocha": "~1.17.0",
-    "verb": "~0.1.10"
+    "verb": "~0.1.10",
+    "handlebars": "~2.0.0-alpha.2"
   },
   "homepage": "https://github.com/helpers/helpers-utils",
   "licenses": [

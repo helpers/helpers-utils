@@ -12,7 +12,7 @@
 {%= contrib("contributing") %}
 
 ## Author
-{%= contrib("authors") %}
+{%= contrib("brian") %}
 
 ## License
 {%= copyright() %}

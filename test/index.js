@@ -5,7 +5,21 @@ var expect = require('chai').expect,
     utils = require('..');
 
 describe('helpers-utils', function() {
-  it('should extend an api', function(done) {
+
+  var greeting = function (name) {
+    return 'Hello, ' + name + '!';
+  };
+
+  before(function () {
+    utils.Library.helpers = [];
+  });
+
+  it('should contain the correct properties', function () {
+    expect(utils).to.have.property('expects');
+    expect(utils).to.have.property('Library');
+  });
+
+  it('should extend an api using expects', function(done) {
     var expected = {
       foo: function () { return 'bar'; },
       bar: function () {}
@@ -30,4 +44,21 @@ describe('helpers-utils', function() {
 
     done();
   });
+
+  it('should add a helper to the Library', function () {
+
+    utils.Library.addHelper('greeting', greeting);
+    expect(utils.Library.helpers).to.have.property('greeting');
+
+  });
+
+  it('should register a helper with handlebars', function () {
+
+    var Handlebars = require('handlebars');
+    utils.Library.addHelper('greeting', greeting);
+    utils.Library.registerHelpers(Handlebars);
+
+    expect(Handlebars.helpers).to.have.property('greeting');
+  });
+
 });
