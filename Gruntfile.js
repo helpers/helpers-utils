@@ -19,7 +19,7 @@ module.exports = function (grunt) {
   // merge the config files
   grunt.initConfig(grunt.util._.merge(appConfig, config));
 
-  grunt.registerTask('default', ['build']);
+  grunt.registerTask('default', ['buildNoVersion']);
   grunt.registerTask('test', ['default', 'tests']);
 
 };
