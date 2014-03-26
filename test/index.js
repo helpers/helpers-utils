@@ -1,8 +1,11 @@
 
 var inspect = require('util').inspect;
-
 var expect = require('chai').expect;
-var utils = require('..');
+
+var helpersUtils = require('..');
+var utils = helpersUtils.Utils;
+var library = helpersUtils.Library;
+
 var Handlebars = require('handlebars');
 
 describe('helpers-utils', function() {
@@ -12,13 +15,13 @@ describe('helpers-utils', function() {
   };
 
   after(function () {
-    utils.Library.helpers = [];
+    library.helpers = [];
     delete Handlebars.helpers['greeting'];
   });
 
   it('should contain the correct properties', function () {
-    expect(utils).to.have.property('expects');
-    expect(utils).to.have.property('Library');
+    expect(helpersUtils).to.have.property('Utils');
+    expect(helpersUtils).to.have.property('Library');
   });
 
   it('should extend an api using expects', function(done) {
@@ -49,30 +52,30 @@ describe('helpers-utils', function() {
 
   it('should add a helper to the Library', function () {
 
-    utils.Library.addHelper('greeting', greeting);
-    expect(utils.Library.helpers).to.have.property('greeting');
+    library.addHelper('greeting', greeting);
+    expect(library.helpers).to.have.property('greeting');
 
   });
 
   it('should register a helper with handlebars', function () {
 
-    utils.Library.addHelper('greeting', greeting);
-    utils.Library.registerHelpers(Handlebars);
+    library.addHelper('greeting', greeting);
+    library.registerHelpers(Handlebars);
 
     expect(Handlebars.helpers).to.have.property('greeting');
   });
 
   it('should add a helper to the Library and return the correct results', function () {
 
-    utils.Library.addHelper('gretting', greeting);
-    expect(utils.Library.helpers.greeting('Brian')).to.eql('Hello, Brian!');
+    library.addHelper('gretting', greeting);
+    expect(library.helpers.greeting('Brian')).to.eql('Hello, Brian!');
 
   });
 
   it('should register a helper with handlebars that is called in a template', function () {
 
-    utils.Library.addHelper('greeting', greeting);
-    utils.Library.registerHelpers(Handlebars);
+    library.addHelper('greeting', greeting);
+    library.registerHelpers(Handlebars);
 
     var data = {
       name: 'Brian'

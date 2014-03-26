@@ -2,7 +2,7 @@
   "name": "helpers-utils",
   "version": "0.1.2",
   "description": "Utility methods commonly used for writing helper libraries.",
-  "main": "index.js",
+  "main": "dist/commonjs/main.js",
   "scripts": {
     "test": "mocha -R spec"
   },
@@ -36,7 +36,9 @@
     "chai": "~1.8.1",
     "mocha": "~1.17.0",
     "verb": "~0.1.10",
-    "handlebars": "~2.0.0-alpha.2"
+    "handlebars": "~2.0.0-alpha.2",
+    "grunt": "~0.4.4",
+    "grunt-microlib": "~0.1.1"
   },
   "homepage": "https://github.com/helpers/helpers-utils",
   "licenses": [
