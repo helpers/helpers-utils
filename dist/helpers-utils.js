@@ -198,6 +198,48 @@ define("helpers-utils/dates",
 
     __exports__.Dates = Dates;
   });
+define("helpers-utils/html",
+  ["exports"],
+  function(__exports__) {
+    "use strict";
+
+    // The module to be exported.
+    var Html = {};
+
+
+    /**
+     * Remove extra newlines from HTML, respect indentation
+     * @param  {String} html
+     * @return {String}
+     */
+    Html.condense = function(str) {
+      return str.replace(/(\n|\r){2,}/g, '\n');
+    };
+
+    /**
+     * Add a single newline above code comments in HTML
+     * @param  {[type]} html
+     * @return {[type]}
+     */
+    Html.padcomments = function(str) {
+      return str.replace(/(\s*<!--)/g, '\n$1');
+    };
+
+
+    /**
+     * Parse HTML attributes from options hash
+     * @param  {[type]} hash [description]
+     * @return {[type]}      [description]
+     */
+    Html.parseAttributes = function (hash) {
+      return Object.keys(hash).map(function (key) {
+        return "" + key + "=\"" + hash[key] + "\"";
+      }).join(' ');
+    };
+
+
+    __exports__.Html = Html;
+  });
 define("helpers-utils/library",
   ["exports"],
   function(__exports__) {
@@ -309,17 +351,19 @@ define("helpers-utils/utils",
     __exports__.Utils = Utils;
   });
 define("helpers-utils",
-  ["helpers-utils/library","helpers-utils/utils","helpers-utils/dates","exports"],
-  function(__dependency1__, __dependency2__, __dependency3__, __exports__) {
+  ["helpers-utils/library","helpers-utils/utils","helpers-utils/dates","helpers-utils/html","exports"],
+  function(__dependency1__, __dependency2__, __dependency3__, __dependency4__, __exports__) {
     "use strict";
     var Library = __dependency1__.Library;
     var Utils = __dependency2__.Utils;
     var Dates = __dependency3__.Dates;
+    var Html = __dependency4__.Html;
 
 
     __exports__.Library = Library;
     __exports__.Utils = Utils;
     __exports__.Dates = Dates;
+    __exports__.Html = Html;
   });
 window.helpersUtils = requireModule("helpers-utils");
 })(window);
