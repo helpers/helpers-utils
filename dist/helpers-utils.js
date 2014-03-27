@@ -348,6 +348,36 @@ define("helpers-utils/utils",
     };
 
 
+    Utils._indexOf = [].indexOf || function (item) {
+      for (var i = 0, l = this.length; i < l; i++) {
+        if (i in this && this[i] === item) {return i;}
+      }
+      return -1;
+    };
+
+    Utils.compare = function(val) {
+      val = val || function (a, b) {
+        if (a.index >= b.index) {
+          return 1;
+        } else {
+          return -1;
+        }
+      };
+    };
+
+
+    Utils.eachProperty = function(context, options) {
+      var ret = "";
+      for (var prop in context) {
+        ret = ret + options.fn({
+          property: prop,
+          value: context[prop]
+        });
+      }
+      return ret;
+    };
+
+
     __exports__.Utils = Utils;
   });
 define("helpers-utils",
