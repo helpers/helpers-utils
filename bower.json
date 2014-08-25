@@ -1,0 +1,27 @@
+{
+  "name": "helpers-utils",
+  "main": "dist/helpers-utils.js",
+  "version": "0.2.3",
+  "homepage": "https://github.com/helpers/helpers-utils",
+  "authors": [
+    "Jon Schlinkert",
+    "Brian Woodward"
+  ],
+  "description": "Generic utility methods for developing helpers and helper libs.",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "handlebars-helpers"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
